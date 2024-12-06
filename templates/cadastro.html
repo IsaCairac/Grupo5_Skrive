@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt=br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | Skrive</title>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="../static/css/login.css">
+
+    <!--JS & jQuery-->
+    <script type="text/javascript" src="js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="container">
+        <div class="banner">
+            <img src="../static/img/login/raposa_folha.png" alt="imagem-login">
+            
+        </div>
+
+        <div class="box-login">
+            <h1>Seja Bem-vindo(a)</h1>
+            <h4>Junte-se a Skrive e torne a criação de avaliações e atividades mais fácil e rápida!</h4>
+            <form action="/cadastro" method="POST" style="width: 100%; justify-content: center; align-items: center; text-align: center; display: flex;" onsubmit="return validateForm()">
+            <div class="box-account">
+                
+                <input type="text" name="nome" id="username" placeholder="Digite seu nome" required>
+                <input type="email" name="email" id="email" placeholder="Digite seu e-mail" required>
+                <select class="form-control" name="disciplina" id="select" required>
+                    <option value="" disabled selected>Selecione a matéria que leciona</option>
+                    <option value="Biologia">Biologia</option>
+                    <option value="Geografia">Geografia</option>
+                    <option value="Língua Inglesa">Língua Inglesa</option>
+                    <option value="Língua Portuguesa">Língua Portuguesa</option>
+                    <option value="Matemática">Matemática</option>
+                    <option value="Física">Física</option>
+                    <option value="Química">Química</option>
+                    <option value="História">História</option>
+                    <option value="Interdisciplinar">Interdisciplinar</option>
+                </select>
+                <input type="password" name="senha" id="password" placeholder="Digite sua senha" required>
+                <input type="password" name="cpassword" id="cpassword" placeholder="Confirmar a senha" required>
+                <a href="/login">
+                    <p style="font-size: smaller; text-align: end; ">Já tenho uma conta</p></a>
+
+                    <div class="check">
+                    <input type="checkbox" name="termo" id="termo" style="width: 13px; height: 13px;">
+                    <label for="termos" style="color: #3d3d3d;">Li e aceito os termos</label>
+                </div>
+    
+                <button type="submit">Criar conta</button>
+            </div>
+        </form>
+        </div>
+    </div>
+
+    <a href="index.html">
+        <div id="bubble">
+            <img src="img/user.png" alt="icone-usuário" title="fazer-login">
+        </div>
+    </a>
+
+    <script>
+        function validateForm() {
+            const nome = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const passwordConfirm = document.getElementById('cpassword').value;
+            
+            const passwordCriteria = /^(?=.*[a-z])(?=.*[A-Z])(?=.{8,})/; // regex para validar a senha
+            const emailCriteria = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // regex para validar o formato do email
+
+            // Validação do nome
+            if (nome.length < 3) {
+                alert("O nome deve conter pelo menos 3 caracteres.");
+                return false; // impede o envio do formulário
+            }
+
+            // Validação do email
+            if (!emailCriteria.test(email)) {
+                alert("Por favor, insira um email válido.");
+                return false; // impede o envio do formulário
+            }
+
+            // Validação da senha
+            if (!passwordCriteria.test(password)) {
+                alert("A senha deve conter pelo menos 8 caracteres, incluindo uma letra maiúscula e uma letra minúscula.");
+                return false; // impede o envio do formulário
+            }
+
+            // Verificação da confirmação da senha
+            if (password !== passwordConfirm) {
+                alert("As senhas não coincidem.");
+                return false; // impede o envio do formulário
+            }
+
+            return true; // permite o envio do formulário
+        }
+
+        // VERIFICAR EMAIL
+        function verificarEmail() {
+        const email = document.getElementById('email').value;
+        $.post('/verificar_email', { email: email }, function(response) {
+            if (response.error) {
+                alert(response.error);
+            } else if (!response.disponivel) {
+                alert("Este email já está cadastrado. Por favor, utilize outro.");
+                document.getElementById('email').value = ''; // Limpa o campo
+            }
+        }, 'json');
+    }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,155 @@
+<head>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../static/img/skrive_ico.ico" type="image/x-icon">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Bubblegum+Sans&family=Chewy&family=Edu+AU+VIC+WA+NT+Dots:wght@400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Ruda:wght@400..900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS  -->
+  <!-- <link href="../static/css/main.css" rel="stylesheet"> -->
+  <!-- FontAwesome ICON -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+
+<header id="header" class="header d-flex align-items-center sticky-top b">
+  <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+    <a href="/index" class="logo d-flex align-items-center me-auto">
+      <img src="../static/img/logo_skrive.png" alt="">
+    </a>
+
+    <!-- Dropdown User -->
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="../static/img/portfolio/books-1.jpg" alt="Imagem do User" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">{{ session['nome_prof'] }}</span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>{{ session['nome_prof'] }}</h6>
+              <span>{{ session['disc_prof'] }}</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <i class="bi bi-person"></i>
+                <span>Minha Conta</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <i class="bi bi-gear"></i>
+                <span>Configurações</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+                <i class="bi bi-question-circle"></i>
+                <span>Ajuda?</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sair</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+      </ul>
+    </nav>
+
+    <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+
+  </div>
+
+</header>
+<nav id="navmenu" class="navmenu justify-content-center">
+  <ul class="nav justify-content-center ">
+    <li class="nav-item">
+      <a href="/dash" class="nav-link active">HOME</a>
+    </li>
+    <li class="nav-item">
+      <a href="/adc_conteudo" class="nav-link">GERADOR</a>
+    </li>
+    <li class="nav-item">
+      <a href="/historico" class="nav-link">HISTÓRICO</a>
+    </li>
+    <li class="nav-item">
+      <a href="/salvos" class="nav-link">SALVOS</a>
+    </li>
+
+    <li class="nav-item">
+      <a href="/skrive" class="nav-link">SKRIVE</a>
+    </li>
+  </ul>
+
+</nav>
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="/static/img/skrive_ico.ico" type="image/x-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS  -->
+  <link href="../static/css/main.css" rel="stylesheet">
+
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/vendor/php-email-form/validate.js"></script>
+  <script src="../static/vendor/aos/aos.js"></script>
+  <script src="../static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../static/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../static/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="../static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../static/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="../static/js/main.js"></script>

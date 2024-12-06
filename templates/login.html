@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt=br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Skrive</title>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="../static/css/login.css">
+
+    <!--JS & jQuery-->
+    <script type="text/javascript" src="js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="container">
+        <div class="banner">
+            <img src="../static/img/login/raposa_piscada.png" alt="imagem-login">
+            
+        </div>
+
+        <div class="box-login">
+            <h1 style="justify-content: center; align-items: center;" >
+                Seja bem vindo de volta!
+            </h1>
+            <h4>Pronto para criar atividades incríveis e transformar suas aulas com a Skrive?</h4>
+
+            <form action="/login" method="POST" class="box">
+                <input type="email" name="email" id="email" placeholder="Digite seu e-mail" required>
+                <input type="password" name="senha" id="password" placeholder="Digite sua senha" required>
+                
+
+                <button type="submit">Login</button>
+                
+                <a href="/cadastro">
+                    <p style="font-size: smaller;">Criar uma conta</p>
+                </a>
+
+                <div class="social">
+                    <img src="../static/img/login/facebook.png" alt="facebook">
+                    <img src="../static/img/login/google.png" alt="google">
+                    <img src="../static/img/login/twitter.png" alt="twitter">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

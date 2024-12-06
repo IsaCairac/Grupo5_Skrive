@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skrive | Gerador de atividades</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../static/img/skrive_ico.ico" type="image/x-icon">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Bubblegum+Sans&family=Chewy&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Ruda:wght@400..900&display=swap" rel="stylesheet">
+  
+  <!-- Vendor CSS Files -->
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS  -->
+  <link href="../static/css/main.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="../static/css/gerador.css"> -->
+  
+  <!-- FontAwesome ICON -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+</head>
+
+<body>
+
+  {% include 'header_log.html' %}
+
+    <main>
+    <div class="container mt-3 justify-content-center d-flex" >
+            <div class="col-md-12 border border-warning p-4 rounded">
+            <!-- Formulário para salvar texto e gerar atividade -->
+            <form action="/criar_atividade" method="post">
+                <h3 class="mb-3 mt-2" style="color: #febc04;">ESPECIFICAÇÕES</h3>
+                <!-- <div class="btn-group col-lg-12 mb-3 mt-3">
+                    <button type="button" class="btn btn-warning ">AVALIAÇÃO</button>
+                    <button type="button" class="btn btn-warning ">ATIVIDADE</button>
+                    <button type="button" class="btn btn-warning ">SIMULADO</button>
+                    </div> -->
+           
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label for="titulo" class="form-label">Título</label>
+                            <input type="text" class="form-control border border-light-subtle" id="titulo" name="titulo"  placeholder="Insira um título" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="id_texto" class="form-label">Texto Base</label>
+                            <select class="form-select" id="id_texto" name="id_texto" required>
+                                <option value="" disabled selected>Selecione um texto base</option>
+                                
+                                {% for texto in textos %}
+                                <option value="{{ texto[0] }}" {% if id_ultimotexto == texto[0] %}selected{% endif %}>{{ texto[2] }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+    
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label for="num-questoes" class="form-label">Número de Questões</label>
+                            <input type="number" class="form-control" id="num_questoes" name="num_questoes" min="1" required placeholder="Número de questões">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="tipo_ativ" class="form-label" >Tipo</label>
+                            <select class="form-select" id="tipo_ativ" name="tipo_ativ" required>
+                                <option value="" disabled selected>Selecionar</option>
+                                <option value="Dissertativa">Dissertativa</option>
+                                <option value="Foco negativo">Foco negativo</option>
+                                <option value="Múltipla escolha">Múltipla escolha</option>
+                                <option value="Interpretação">Interpretação</option>
+                            </select>
+                        </div>
+                    </div>
+    
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label for="publico_ativ" class="form-label">Público-Alvo</label>
+                            <select class="form-select" id="publico_ativ" name="publico_ativ" required>
+                                <option value="" disabled selected>Selecionar</option>
+                                <option value="Fundamental I - iniciais">Fundamental I - iniciais</option>
+                                <option value="Fundamental I - finais">Fundamental I - finais</option>
+                                <option value="Fundamental II - iniciais">Fundamental II - iniciais</option>
+                                <option value="Fundamental II - finais">Fundamental II - finais</option>
+                                <option value="Ensino Médio">Ensino Médio</option>
+                            </select>
+                        </div>
+                    <div class="col-md-6">
+                        <label for="nivel_ativ" class="form-label">Nível de Dificuldade</label>
+                        <div class="difficulty-level mt-2">
+                            <input type="radio" id="facil" name="nivel_ativ" value="Fácil" class="difficulty-input" required>
+                            <label for="facil" class="difficulty-label">Fácil</label>
+
+                            <input type="radio" id="medio" name="nivel_ativ" value="Médio" class="difficulty-input" required>
+                            <label for="medio" class="difficulty-label">Médio</label>
+
+                            <input type="radio" id="dificil" name="nivel_ativ" value="Difícil" class="difficulty-input" required>
+                            <label for="dificil" class="difficulty-label">Difícil</label>
+                        </div>  
+                    </div>
+                    </div>
+                    <div class="form-group col-md-12 mt-4">
+                        <label for="conteudo" class="form-label">DESCRIÇÃO DA ATIVIDADE</label>
+                        <textarea class="form-control" id="descricao" name="descricao" maxlength="5000" required></textarea>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-dark col-md-4 border border-warning border-2">Gerar Atividade</button>
+                    </div>
+                    
+                </div>
+                
+                </form>
+            </div>
+      
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   
+</main>
+
+<script src="../static/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../static/vendor/chart.js/chart.umd.js"></script>
+<script src="../static/vendor/echarts/echarts.min.js"></script>
+<script src="../static/vendor/quill/quill.js"></script>
+<script src="../static/vendor/simple-datatables/simple-datatables.js"></script>
+<script src="../static/vendor/tinymce/tinymce.min.js"></script>
+<script src="../static/vendor/php-email-form/validate.js"></script>
+
+<!-- Template Main JS File -->
+<script src="../static/js/main.js"></script>
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+         
+         
+
+<style>
+
+.card {
+    border: 2px solid #000000; /* Amarelo */
+    border-radius: 15px;
+}
+
+
+h3 {
+    font-family: "Chewy", system-ui;
+    font-weight: 200;
+      font-size: 2.5rem;
+    
+}
+
+
+.form-control, .form-select {
+    border-radius: 5px;
+}
+
+input #titulo{
+    border: #000000 solid 2px;
+}
+
+.form-label{
+    color: #2c4d6a;
+    font-weight: bold;
+    position: relative;
+    padding-left: 15px; /* Cria espaço para a linha */
+   
+}
+
+
+.form-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px; /* Espessura da linha */
+    background-color: #FF8D29; /* Cor da linha */
+    border-radius: 2px; /* Bordas arredondadas (opcional) */
+}
+
+textarea {
+    resize: none;
+    scrollbar-width:unset;
+    outline: none;
+    scrollbar-width:unset;
+    height: 100px;
+}
+
+button {
+    background-color: #3d3d3d;
+    color: white;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #febc04;
+    color: #3d3d3d;
+}
+
+
+
+/* Escondendo os inputs */
+.difficulty-input {
+  display: none;
+}
+
+/* Estilos para os labels (botões) */
+.difficulty-level {
+  display: flex;
+  justify-content: space-between;
+  max-width: 300px; /* Diminui o espaço total */
+  justify-content: space-between;
+}
+
+.difficulty-label {
+  position: relative;
+  background-color: #fff;
+  border: 2px solid #0D1B2A;
+  border-radius: 8px;
+  padding: 5px 10px; /* Reduz o padding */
+  font-weight: bold;
+  color: #0D1B2A;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  font-size: 14px; /* Tamanho da fonte menor */
+}
+
+.difficulty-label::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #0D1B2A; /* Cor da seta */
+  
+}
+
+/* Estilo para "Fácil" */
+#facil:checked + .difficulty-label {
+  background-color: #32CD32; /* Verde */
+  
+}
+
+
+/* Estilo para "Médio" */
+#medio:checked + .difficulty-label {
+  background-color: #FF8D29; /* Amarelo */
+
+}
+
+
+/* Estilo para "Difícil" */
+#dificil:checked + .difficulty-label {
+  background-color: #fd001e; /* Vermelho */
+ 
+}
+
+
+/* Efeito hover para todos */
+#facil:hover {
+  background-color: #0D1B2A;
+
+}
+
+.btn-dark {
+    background-color: #1C3144; /* Cinza escuro */
+    border: none;
+    color: #fff; /* Branco */
+    font-weight: 700;
+    border-radius: 15px;
+}
+
+.btn-dark:hover {
+    background-color: #2c4d6a; /* Cinza escuro mais escuro */
+}
+
+.range-slider {
+    display: flex;
+    align-items: center;
+}
+
+.range-slider input[type="range"] {
+    width: 100%;
+}
+
+.range-slider span {
+    font-size: 12px;
+}
+
+.range-slider .float-left {
+    margin-right: 10px;
+}
+
+.range-slider .float-right {
+    margin-left: 10px;
+}
+</style>
