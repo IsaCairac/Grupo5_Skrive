@@ -3,7 +3,7 @@ TESTE = True
 if TESTE:
     DB_HOST = "localhost"
     DB_USER = "root"
-    DB_PASSWORD = "4717"
+    DB_PASSWORD = "senai"
     DB_NAME = "skrive"
 
 SECRET_KEY = "skrive"
