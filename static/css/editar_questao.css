@@ -1,0 +1,91 @@
+/* Personalizações sutis para complementar o Bootstrap */
+.container{
+    margin-top: -50px;
+}
+
+
+textarea {
+    resize: none; /* Impede o redimensionamento manual */
+    overflow: hidden; /* Remove a barra de rolagem até o ajuste */
+    min-height: 50px; /* Altura mínima inicial */
+    height: 200px; /* Altura máxima opcional */
+    width: 100%; /* Ajusta para o tamanho do container */
+    background-color: #fef9f0;
+    border: 1px solid #febc04;
+    border-radius: 0.5rem;
+    color: #333;
+    padding: 10px;
+    font-size: 1rem; /* Ajuste o tamanho da fonte se necessário */
+    line-height: 1.5rem; /* Define a altura da linha */
+    box-sizing: border-box; /* Inclui padding e borda no cálculo da largura */
+}
+
+
+textarea:focus,
+input:focus {
+    border-color: #f09300;
+    outline: none;
+    box-shadow: 0 0 5px rgba(254, 188, 4, 0.4);
+}
+
+.form-control {
+    resize: none; /* Desabilita o redimensionamento pelo mouse */
+    overflow: hidden; /* Esconde o scroll até o ajuste automático */
+    min-height: 50px; /* Altura mínima inicial */
+    max-height: 500px; /* (Opcional) Altura máxima para limitar o crescimento */
+    width: 100%; /* Ajusta para o tamanho desejado */
+    font-size: 1rem; /* Ajuste o tamanho da fonte se necessário */
+    line-height: 1.5rem; /* Define a altura da linha */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+label {
+    color: #6c757d; /* Cor do label Bootstrap */
+}
+
+input[type="submit"] {
+    background-color: #ff6b6b;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+    background-color: #ff4747;
+    transform: scale(1.02);
+}
+
+/* Centralizar o formulário */
+form {
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #f4e2c6;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+@media (max-width: 768px) {
+    .form-control {
+        font-size: 0.9rem; /* Ajusta o tamanho da fonte em telas pequenas */
+    }
+
+    .btn {
+        width: 100%; /* Faz os botões ocuparem toda a largura em telas menores */
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .form-floating {
+        margin-bottom: 15px; /* Aumenta o espaço entre os campos em telas pequenas */
+    }
+
+    textarea {
+        font-size: 0.8rem; /* Reduz o tamanho da fonte em dispositivos muito pequenos */
+    }
+}

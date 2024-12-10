@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Questão</title>
+    <link rel="stylesheet" href="../static/css/editar_questao.css">
+</head>
+<body>
+    {% include 'header_log.html' %}
+    <form action="/atualizar_questao_dis/{{ questao[0] }}" method="post" enctype="multipart/form-data" class="col-sm-10 col-md-8 col-lg-6 mx-auto text-center needs-validation" novalidate>
+        <div class="form-floating mb-3">
+            <textarea 
+                oninput="adjustHeight(this)" 
+                name="enunciado" 
+                class="form-control" 
+                required 
+                placeholder="Escreva o enunciado aqui...">{{ questao[1] }}</textarea>
+            <label for="enunciado">Enunciado</label>
+        </div>
+    
+        <input type="submit" class="mt-3 btn btn-lg btn-danger justify-content-center" value="Salvar" />
+    </form>
+    
+    
+    
+    
+</div>
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (() => {
+            'use strict'
+    
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation')
+    
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+    
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+
+
+
+        function adjustHeight(textarea) {
+    // Reseta a altura para recalcular
+    textarea.style.height = "auto";
+    // Ajusta a altura ao tamanho do conteúdo
+    textarea.style.height = textarea.scrollHeight + "px";
+}
+
+    </script>
+
+    <script href="../static/js/editar_questoes.js"></script>
+
+    <style>
+        /* Personalizações gerais */
+textarea {
+    word-wrap: break-word; /* Quebra palavras longas */
+    overflow-wrap: break-word; /* Força quebra de linha */
+    resize: none; /* Impede redimensionamento manual */
+    overflow: hidden; /* Oculta barras de rolagem */
+    min-height: 50px; /* Altura mínima */
+    max-height: 500px; /* Altura máxima (opcional) */
+    width: 100%; /* Largura total do container */
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding: 10px;
+    background-color: #fef9f0;
+    border: 1px solid #febc04;
+    border-radius: 0.5rem;
+    color: #333;
+    box-sizing: border-box; /* Inclui padding e borda na largura */
+}
+
+/* Ajusta o comportamento ao foco */
+textarea:focus {
+    border-color: #f09300;
+    outline: none;
+    box-shadow: 0 0 5px rgba(254, 188, 4, 0.4);
+}
+
+/* Estilização do formulário */
+form {
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #f4e2c6;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Botão de envio */
+input[type="submit"] {
+    background-color: #ff6b6b;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+    background-color: #ff4747;
+    transform: scale(1.02);
+}
+
+/* Responsividade para tablets e celulares */
+@media (max-width: 768px) {
+    textarea {
+        font-size: 0.9rem;
+    }
+
+    form {
+        width: 95%; /* Reduz a largura do formulário em telas pequenas */
+    }
+
+    input[type="submit"] {
+        width: 100%; /* Botão ocupa toda a largura */
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    textarea {
+        font-size: 0.8rem;
+    }
+
+    form {
+        width: 100%; /* Ajuste completo para dispositivos muito pequenos */
+    }
+}
+
+    </style>
+</body>
+</html>

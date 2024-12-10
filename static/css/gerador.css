@@ -1,0 +1,140 @@
+.card {
+    border: 2px solid #000000; /* Amarelo */
+    border-radius: 15px;
+}
+
+#text-center{
+    font-size: 1.5rem;
+    text-align: start;
+    color: red;
+    font-weight: 800;
+    font-family: "Sour Gummy", sans-serif;
+}
+
+#titulo{
+    scrollbar-width:unset;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #ffffff00 ;
+    border: 1px solid transparent;
+    padding-left: 1rem;
+    outline: none;
+    resize: none;
+    color: #D0021B; /* Exemplo de cor vermelha */
+    font-weight: bold; /* Negrito no placeholder */
+    font-size: 1.5rem;
+    line-height: 1.6rem;
+    overflow-y: hidden;
+    max-height: 130px;
+}
+
+
+#titulo::placeholder {
+    color: #FF0000; /* Exemplo de cor vermelha */
+    font-weight: bold; /* Negrito no placeholder */
+    font-size: 1.5rem;
+}
+
+#conteudo{
+    color: #1C3144; /* Exemplo de cor azul */
+    font-weight: bold; /* Negrito no placeholder */
+    font-size: 1rem;
+    
+}
+
+#conteudo::placeholder{
+    color: #1C3144; /* Exemplo de cor azul */
+    font-weight: bold; /* Negrito no placeholder */
+    font-size: 1rem;
+}
+
+#conteudo::-webkit-scrollbar{
+    background-color: #1C3144;
+    border-radius: 10px;
+    width: 10px;
+    justify-content: end;
+    
+
+}
+
+#conteudo::-webkit-scrollbar-thumb{
+    background-color: #febc04;
+    border-radius: 10px;
+    cursor: pointer;
+    justify-content: end;
+}
+
+.card-title,
+.card-text {
+    color: #D0021B; /* Preto */
+}
+
+.textarea{
+    min-height: 300px;
+    scrollbar-width:unset;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #ffffff00 ;
+    border: 1px solid transparent;
+    padding: 1rem;
+    outline: none;
+    color: #1C3144;
+    resize: none;
+}
+
+
+/* Gerador_atividade */
+.btn-warning {
+    background-color: #FFD700;
+    border: none;
+    color: #222; /* Preto */
+    border-radius: 25px;
+    height: 45px;
+    font-weight: 800px;
+}
+
+.btn-warning:hover {
+    background-color: #FFC300; /* Amarelo mais escuro */
+    font-weight: 800;
+}
+
+
+
+
+/* Ajustes para tablet */
+@media (max-width: 768px) {
+  #titulo {
+      font-size: 1.2rem; /* Diminui o tamanho da fonte */
+      line-height: 1.4rem;
+  }
+
+  .textarea {
+      min-height: 250px; /* Ajusta a altura mínima para telas menores */
+  }
+
+  .card-body {
+      padding: 1rem; /* Reduz o espaçamento interno da área do formulário */
+  }
+}
+
+/* Ajustes para telas de celular */
+@media (max-width: 576px) {
+  #titulo {
+      font-size: 1rem; /* Ajusta a fonte ainda menor para caber melhor na tela */
+  }
+
+  #conteudo {
+      min-height: 200px; /* Ajusta a altura do campo de texto */
+      font-size: 0.9rem; /* Reduz a fonte */
+  }
+
+  .textarea {
+      padding: 0.5rem; /* Reduz o espaçamento interno */
+  }
+
+  .card {
+      margin: 0 1rem; /* Adiciona espaçamento lateral */
+  }
+
+  .btn {
+      width: 100%; /* Faz o botão ocupar toda a largura no celular */
+  }
+}

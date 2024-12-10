@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skrive | Resultado</title>
+  <link rel="stylesheet" href="../static/css/questoes.css">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../static/img/skrive_ico.ico" type="image/x-icon">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS  -->
+  <link href="../static/css/main.css" rel="stylesheet">
+  <!-- Dash CSS -->
+  <link rel="stylesheet" href="../static/css/dash.css">
+  <link rel="stylesheet" href="../static/css/questoes.css">
+
+</head>
+
+<body class="index-page">
+
+  
+  {% include 'header_log.html' %}
+  {% if questoes %}
+
+  <body>
+    <div class="container mt-2">
+      <!-- Barra superior -->
+      <div class="row">
+          <div class="d-flex justify-content-between align-items-center p-0">
+              <!-- Ícone alinhado à esquerda -->
+              <a href="/gerador" class="text-warning">
+                  <i class="bi bi-caret-left-fill" style="cursor: pointer; font-size: 1.5rem;"></i>
+              </a>
+  
+              <!-- Botão alinhado à direita -->
+              <a href="/baixar_pdf/{{ id_ativ }}" class="btn btn-dark download-btn col-md-2 mb-3" id="pdf">
+                  <i class="fas fa-file-download"></i> Baixar PDF
+              </a>
+          </div>
+      </div>
+  
+      <!-- Coluna do subtítulo/questões -->
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card questions-card">
+                  <div class="card-body scroll-card text-start" style="height: auto; overflow-y: auto; overflow-x: hidden;">
+                      <!-- Título principal -->
+                      <h2 class="text-danger">{{ titulo }}</h2>
+                      
+                      <!-- Iteração das questões -->
+                      {% for questao in questoes %}
+                          <h4 class="questions-title mt-4">{{ loop.index }} - {{ questao[1] }}</h4>
+                          <a class="dropdown-item text-decoration-none text-primary mb-4" href="/editar_questao_dis/{{ questao[0] }}">
+                              <i class="fas fa-edit"></i> Editar questão
+                          </a>
+                      {% endfor %}
+                  </div>
+              </div>
+          </div>
+  
+
+        {% else %}
+          <p>Nenhuma questão dissertativa encontrada.</p>
+        {% endif %}
+ 
+       
+    </div>
+  </div>
+  
+
+    <!-- Vendor JS Files -->
+    <script src="../static/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/vendor/chart.js/chart.umd.js"></script>
+    <script src="../static/vendor/echarts/echarts.min.js"></script>
+    <script src="../static/vendor/quill/quill.js"></script>
+    <script src="../static/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="../static/vendor/tinymce/tinymce.min.js"></script>
+    <script src="../static/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="../static/js/main.js"></script>
+
+  </body>
+
+</html>
+<style>
+  /* Card geral para as atividades */
+  .activity-card,
+  .questions-card {
+    border: 2px solid #D3D3D3;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;
+    margin-bottom: 20px;
+
+  }
+
+  /* Título da atividade */
+  .activity-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #012241;
+    margin-bottom: 15px;
+  }
+
+  /* Texto da atividade */
+  .activity-text {
+    font-size: 14px;
+    color: #333;
+    text-align: justify;
+    margin-bottom: 10px;
+  }
+
+  /* Título da seção de questões */
+  .questions-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #012241;
+    margin-bottom: 10px;
+  }
+
+  /* Lista de questões */
+  .questions-list {
+    font-size: 14px;
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  .questions-list li {
+    margin-bottom: 8px;
+  }
+
+  /* Botão de download */
+  .download-btn {
+    background-color: #012241;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    display: inline-block;
+    font-size: 14px;
+  }
+
+  .scroll-card {
+    height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+}
+
+.scroll-card::-webkit-scrollbar{
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    width: 10px;
+    justify-content: end;
+    
+
+}
+
+.scroll-card::-webkit-scrollbar-thumb{
+    background-color: #959494;
+    border-radius: 10px;
+    cursor: pointer;
+    justify-content: end;
+}
+
+
+</style>

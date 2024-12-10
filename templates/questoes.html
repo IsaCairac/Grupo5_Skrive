@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skrive | Resultado</title>
+  <link rel="stylesheet" href="../static/css/questoes.css">
+
+</head>
+
+<body class="index-page">
+
+  
+  {% include 'header_log.html' %}
+
+  <body>
+    <div class="container mt-2">
+      <div class="row">
+        <div class="d-flex justify-content-between align-items-center p-0">
+            <!-- Ícone alinhado à esquerda -->
+            <a href="/gerador" class="text-warning">
+                <i class="bi bi-caret-left-fill" style="cursor: pointer; font-size: 1.5rem;"></i>
+            </a>
+    
+            <!-- Botão alinhado à direita -->
+            <a href="/baixar_pdf/{{ id_ativ }}" class="btn btn-dark download-btn col-md-2 mb-3" id="pdf">
+              <i class="fas fa-file-download"></i> Baixar PDF
+            </a>
+        </div>
+    </div>
+    
+      <!-- Coluna do subtítulo/questões -->
+
+      <div class="col-md-12 mb-4">
+        <div class="card questions-card">
+            <div class="card-body scroll-card text-start" style="height: 450px; overflow-y: auto; overflow-x: hidden;">
+                <!-- Título principal -->
+                <h2 class=" text-danger ">{{ titulo_atividade }}</h2>
+                
+                <!-- Iteração das questões -->
+                {% for questao in questoes %}
+                    <h4 class="questions-title mt-4">{{ loop.index }} - {{ questao[1] }}</h4>
+                    <p>a) {{ questao[2] }}</p>
+                    <p>b) {{ questao[3] }}</p>
+                    <p>c) {{ questao[4] }}</p>
+                    <p>d) {{ questao[5] }}</p>
+                    <div>
+                      <a class="text-primary text-decoration-none" href="/editar_questao/{{ questao[0] }}">
+                          <i class="fas fa-edit mb-3"></i> Editar questão
+                      </a>
+                  </div>
+                {% endfor %}
+                </div></div></div>
+ 
+                <div class="container-fluid vh-100">
+                  <!-- Botão para mostrar/esconder o gabarito -->
+                  <div class="text-center my-3">
+                      <button id="toggleGabarito" class="btn btn-primary">Ver Gabarito</button>
+                  </div>
+          
+                  <!-- Coluna do subtítulo/questões -->
+                  <div id="gabaritoSection" class="col-md-12 mb-4 d-none">
+                      <div class="card questions-card">
+                          <div class="card-body scroll-card" style="height: 450px; overflow-y: auto; overflow-x: hidden;">
+                              <h2 class="questions-title text-danger mb-3 fs-4 text">Gabarito</h2>
+                              {% for questao in questoes %}
+                                  <h4 class="questions-title mt-2 fs-6 text" id="questoes">{{ loop.index }} - {{ questao[1] }}</h4>
+                                  <p class="text-danger mb-4">Resposta Correta: {{ questao[6] }}</p>
+                              {% endfor %}
+                          </div>
+                      </div>
+                  </div>
+              </div>
+    
+    </div>
+  
+
+    <!-- Vendor JS Files -->
+    <script src="../static/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/vendor/chart.js/chart.umd.js"></script>
+    <script src="../static/vendor/echarts/echarts.min.js"></script>
+    <script src="../static/vendor/quill/quill.js"></script>
+    <script src="../static/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="../static/vendor/tinymce/tinymce.min.js"></script>
+    <script src="../static/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="../static/js/main.js"></script>
+    <script src="../static/js/questoes.js"></script>
+
+  </body>
+
+  
+
+</html>

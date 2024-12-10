@@ -1,0 +1,52 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Estilos do título */
+  #tittle {
+    font-size: 1.5rem;
+    text-align: start;
+    color: red;
+    font-weight: 800;
+    font-family: "Sour Gummy", sans-serif;
+  }
+  
+  /* Ajustes gerais */
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-body {
+    text-align: center;
+  }
+  
+  .card-body img {
+    max-height: 100px;
+    object-fit: contain;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para dispositivos menores */
+  @media (max-width: 576px) {
+    .card-body img {
+      max-height: 80px;
+    }
+  
+    .card-title {
+      font-size: 0.9rem;
+    }
+    #tittle{
+        font-size: 1.2rem;
+    }
+  }
+  

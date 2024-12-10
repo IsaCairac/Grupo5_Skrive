@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Skrive | Inovação tecnológica para docentes</title>
+  <title>Index - eNno Bootstrap Template</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link rel="shortcut icon" href="/static/img/skrive_ico.ico" type="image/x-icon">
+  <link href="../static/img/favicon.png" rel="icon">
+  <link href="../static/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -21,14 +24,12 @@
   <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Main CSS  -->
+  <!-- Main CSS File -->
   <link href="../static/css/main.css" rel="stylesheet">
 
-  <!-- FontAwesome icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-
-
+ 
 </head>
 
 <body class="index-page">
@@ -49,30 +50,27 @@
     </div>
     
   </header>
-  
-    
 
   <nav id="navmenu" class="navmenu justify-content-center">
-    <ul class="nav justify-content-center ">
+    <ul class="nav justify-content-center">
       <li class="nav-item">
-        <a href="#hero" class="nav-link active">HOME</a>
+        <a href="#hero" class="nav-link {% if active_page == 'home' %}active{% endif %}">HOME</a>
       </li>
       <li class="nav-item">
-        <a href="/gerador" class="nav-link">GERADOR</a>
+        <a href="#about" class="nav-link {% if active_page == 'gerador' %}active{% endif %}">GERADOR</a>
       </li>
       <li class="nav-item">
-        <a href="#faq" class="nav-link">DÚVIDAS</a>
+        <a href="#faq" class="nav-link {% if active_page == 'historico' %}active{% endif %}">DÚVIDAS</a>
       </li>
       <li class="nav-item">
-        <a href="#skrive" class="nav-link">SKRIVE</a>
+        <a href="#services" class="nav-link {% if active_page == 'salvos' %}active{% endif %}">SKRIVE</a>
       </li>
-      
       <li class="nav-item">
-        <a href="#call-to-action" class="nav-link">CONTATO</a>
+        <a href="#call-to-action" class="nav-link {% if active_page == 'skrive' %}active{% endif %}">CONTATO</a>
       </li>
     </ul>
-  
   </nav>
+  
   
 
   <main class="main">
@@ -81,73 +79,32 @@
     <section id="hero" class="hero section">
 
       <div class="container">
-        <div class="row gy-2 align-items-center d-flex justify-content-center align-items-center">
+        <div class="row gy-4">
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
             <h1>Facilitando a criação de avaliações e atividades para professores!</h1>
             <p>Economize tempo e foque no que realmente importa: <strong> ensinar! </strong></p>
             <div class="d-flex">
-              <a href="#about" class="btn-get-started">
-                <button>Conheça a Skrive</button>
-                </a>
-              <!-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
+              <a href="#about" class="btn-get-started">Conheça o Skrive</a>
+              <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Tutorial</span></a>
             </div>
           </div>
-          <div class="col-lg-6 order-1 order-lg-2 hero-img " data-aos="zoom-out" data-aos-delay="80">
-            <img src="../static/img/lading_page/Lading Page.png" class="img-fluid animated justify-content-center align-items-center" alt="">
+          <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="100">
+            <img src="../static/img/lading_page/Lading Page.png" class="img-fluid animated p-0" alt="">
           </div>
         </div>
       </div>
 
     </section><!-- /Hero Section -->
 
-    <!-- Featured Services Section -->
-    <section id="featured-services" class="featured-services section" >
-
-      <div class="icon-boxes position-relative" data-aos="fade-up" data-aos-delay="200">
-        <div class="container position-relative">
-          <div class="row gy-4 mt-5">
-            <h1 class="mt-4 mb-5">Experimente todas as funcionalidades do Skrive</h1>
-            <div class="col-xl-3 col-md-6">
-              <div class="icon-box">
-                <div class="icon"><i class="bi bi-easel"></i></div>
-                <h4 class="title"><a href="/login" class="stretched-link">Atividades</a></h4>
-              </div>
-            </div><!--End Icon Box -->
-
-            <div class="col-xl-3 col-md-6">
-              <div class="icon-box">
-                <div class="icon"><i class="fa-solid fa-pen-ruler"></i></div>
-                <h4 class="title"><a href="/login" class="stretched-link">Avaliações</a></h4>
-              </div>
-            </div><!--End Icon Box -->
-
-            <div class="col-xl-3 col-md-6">
-              <div class="icon-box">
-                <div class="icon"><i class="fa-regular fa-newspaper"></i></i></div>
-                <h4 class="title"><a href="/login" class="stretched-link">Simulados</a></h4>
-              </div>
-            </div><!--End Icon Box -->
-
-            <div class="col-xl-3 col-md-6">
-              <div class="icon-box">
-                <div class="icon"><i class="fa-solid fa-ribbon"></i></div>
-                <h4 class="title"><a href="/login" class="stretched-link">Atividades Inclusivas</a></h4>
-              </div>
-            </div><!--End Icon Box -->
-
-          </div>
-        </div>
-      </div>
-
-    </section><!-- /Featured Services Section -->
+   
 
     <!-- About Section -->
     <section id="about" class="about section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Transformando sua criação em sala de aula</h2>
-        <p>Como a Skrive Pode Ajudar Você</p>
+        <h2>Sobre</h2>
+        <p>Sobre a plataforma</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -156,49 +113,20 @@
           <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
             <img src="../static/img/lading_page/about.png" class="img-fluid" alt="">
             <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
-          
           </div>
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
-            <div class="container py-5">
-              <div class="row align-items-center mb-4">
-                <div class="col-2 text-center">
-                  <div class="icon-wrapper bg-warning rounded-circle d-flex justify-content-center align-items-center" style="width: 60px; height: 60px;">
-                    <img src="../static/img/lading_page/about1.png" alt="" height="35" width="35">
-                  </div>
-                </div>
-                <div class="col-10">
-                  <h5 class="fw-bold">Geração Automática de Atividades</h5>
-                  <p>Transforme conteúdos em atividades completas com poucos cliques.</p>
-                </div>
-              </div>
-              <hr>
-              
-              <div class="row align-items-center mb-4">
-                <div class="col-2 text-center">
-                  <div class="icon-wrapper bg-warning rounded-circle d-flex justify-content-center align-items-center" style="width: 60px; height: 60px;">
-                    <img src="../static/img/lading_page/about2.png" alt="" height="35" width="35">
-                  </div>
-                </div>
-                <div class="col-10">
-                  <h5 class="fw-bold">Simulados Personalizados</h5>
-                  <p>Crie simulados de acordo com as necessidades da turma.</p>
-                </div>
-              </div>
-              <hr>
-              
-              <div class="row align-items-center">
-                <div class="col-2 text-center">
-                  <div class="icon-wrapper bg-warning rounded-circle d-flex justify-content-center align-items-center" style="width: 60px; height: 60px;">
-                    <img src="../static/img/lading_page/about3.png" alt="" height="35" width="35">
-                  </div>
-                </div>
-                <div class="col-10">
-                  <h5 class="fw-bold">Banco de Questões</h5>
-                  <p>Acesse milhares de questões prontas para serem usadas.</p>
-                </div>
-              </div>
-            </div>
-            
+            <h3>Ferramenta Completa para Criar Atividades </h3>
+            <p class="fst-italic">
+              Crie atividades personalizadas em tempo recorde
+            </p>
+            <ul>
+              <li><i class="bi bi-check2-all"></i> <span>Transforme conteúdos em atividades completas com poucos cliques</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>Crie simulados de acordo com as necessidades da turma</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>Acesse milhares de questões prontas para serem usadas.</span></li>
+            </ul>
+            <p>
+              O Skrive é acessível em qualquer dispositivo, garantindo que você tenha acesso às suas ferramentas educacionais, seja no computador ou no celular. Mantenha-se conectado ao que precisa para ensinar melhor.
+            </p>
           </div>
         </div>
 
@@ -206,14 +134,16 @@
 
     </section><!-- /About Section -->
 
+   
 
     <!-- Services Section -->
     <section id="services" class="services section light-background">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>A Skrive pode transformando sua sala de aula</h2>
-        <p>Um Pouco Mais Sobre Nossa Ferramenta</p>
+
+        <h2>Nossa ferramenta</h2>
+        <p>Para todas as idades</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -240,7 +170,7 @@
               <a href="service-details.html" class="stretched-link">
                 <h3>Fundamental II</h3>
               </a>
-              <p>Monte atividades e avaliações que desafiem e estimulem o raciocínio dos alunos do 6º ao 9º ano, adaptando o conteúdo conforme o progresso de cada turma.</p>
+              <p> Monte atividades e avaliações que desafiem e estimulem o raciocínio dos alunos do 6º ao 9º ano, adaptando o conteúdo conforme o progresso de cada turma.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -256,157 +186,10 @@
             </div>
           </div><!-- End Service Item -->
 
-        </div>
-
-      </div>
+         
 
     </section><!-- /Services Section -->
 
-   
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Testimonials</h2>
-        <p>O que os professores dizem sobre a Skrive</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 1,
-                  "spaceBetween": 40
-                },
-                "1200": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 10
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="d-flex">
-                  <img src="../static/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                  <div><h3>Renata Costa</h3>
-                  <h4>Coordenadora Pedagógica</h4>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  </div>
-                </div>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>A Skrive facilita meu trabalho de uma maneira que eu nem imaginava ser possível. O banco de questões é vasto, e a interface é superintuitiva. Já recomendei para todos os meus colegas de escola!</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="d-flex">
-                  <img src="../static/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                  <div><h3>Lucas Santana</h3>
-                  <h4>Professor de Matemática</h4>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  </div>
-                </div>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Antes, preparar simulados era uma tarefa demorada. Com a Skrive, tenho uma ferramenta ágil e confiável que gera exercícios de acordo com o nível de dificuldade que preciso. Meus alunos estão mais engajados e eu, mais organizado!</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="d-flex">
-                  <img src="../static/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                  <div><h3>Mariana Oliveira</h3>
-                  <h4>Instrutora Pedagógica</h4>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  </div>
-                </div>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>A Skrive transformou completamente a forma como preparo minhas atividades. Economizo muito tempo e consigo personalizar cada avaliação para as necessidades da minha turma. É uma ferramenta essencial no meu dia a dia!</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="d-flex">
-                  <img src="../static/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                  <div><h3>Carlos Mendes </h3>
-                  <h4>Professor de Biologia</h4>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  </div>
-                </div>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>A Skrive me ajudou a inovar nas avaliações e simulados que preparo. Gosto da flexibilidade que ele oferece para diferentes disciplinas e níveis de dificuldade. A plataforma realmente facilita minha rotina!</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="d-flex">
-                <img src="../static/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <div><h3>Felipe Duarde</h3>
-                <h4>Professor de Geografia</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-              </div>
-              </div>
-                
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Uso a Skrive há meses e não troco por nada. Posso criar avaliações dinâmicas e personalizadas sem complicação. É ideal para quem precisa otimizar o tempo de planejamento.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-
-    </section>
-   <!-- /Testimonials Section -->
 
     <!-- Call To Action Section -->
     <section id="call-to-action" class="call-to-action section accent-background">
@@ -416,14 +199,104 @@
           <div class="col-xl-10">
             <div class="text-center">
               <h3>Entre em Contato</h3>
-              <p>Tem alguma dúvida ou precisa de ajuda? Estamos aqui para apoiar você! Envie um e-mail para nossa equipe, e responderemos o mais rápido possível para garantir que sua experiência com a Scrike seja a melhor possível.</p>
-              <a class="cta-btn" href="#">Entrar em contato</a>
+              <p>Tem alguma dúvida ou precisa de ajuda? Estamos aqui para apoiar você! Envie um e-mail para nossa equipe, e responderemos o mais rápido possível para garantir que sua experiência com o Scrike seja a melhor possível.</p>
+              <a class="cta-btn" href="#">Contato</a>
             </div>
           </div>
         </div>
       </div>
 
     </section><!-- /Call To Action Section -->
+
+   
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contato</h2>
+        <p>Entre em contato</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-5">
+
+            <div class="info-wrap">
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                <div>
+                  <h3>Endereço</h3>
+                  <p>Avenida Kazumi Yoshimura, 430, 
+                    Distrito Industrial - Vila Isabel, Itapeva - SP</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                <i class="bi bi-telephone flex-shrink-0"></i>
+                <div>
+                  <h3>Telefone</h3>
+                  <p>+55 15 99120-5124</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                <i class="bi bi-envelope flex-shrink-0"></i>
+                <div>
+                  <h3>Email</h3>
+                  <p>skrive_ltda@gmail.com</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <div class="row gy-4">
+
+                <div class="col-md-6">
+                  <label for="name-field" class="pb-2">Seu Nome</label>
+                  <input type="text" name="name" id="name-field" class="form-control" required="">
+                </div>
+
+                <div class="col-md-6">
+                  <label for="email-field" class="pb-2">Seu Email</label>
+                  <input type="email" class="form-control" name="email" id="email-field" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <label for="subject-field" class="pb-2">Título</label>
+                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <label for="message-field" class="pb-2">Mensagem</label>
+                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                  <button type="submit">Enviar Mensagem</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
 
      <!-- Faq Section -->
      <section id="faq" class="faq section mt-4 mb-5">
@@ -444,13 +317,13 @@
               <div class="faq-item faq-active">
                 <h3><span class="num">1.</span> <span>Posso criar avaliações para diferentes disciplinas?</span></h3>
                 <div class="faq-content">
-                  <p>Sim! O Skrive permite que você crie avaliações personalizadas para diversas disciplinas. Basta inserir o conteúdo relacionado à matéria desejada, e a plataforma gerará questões específicas para cada área de estudo.</p>
+                  <p>Sim! A Scrike permite que você crie avaliações personalizadas para diversas disciplinas. Basta inserir o conteúdo relacionado à matéria desejada, e a plataforma gerará questões específicas para cada área de estudo.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item">
-                <h3><span class="num">2.</span> <span>Da para reutilizar atividades que já criei no Skrive?</span></h3>
+                <h3><span class="num">2.</span> <span>Da para reutilizar atividades que já criei no Scrike?</span></h3>
                 <div class="faq-content">
                   <p>Você pode salvar e reutilizar atividades anteriores na Scrike. Basta acessar seu histórico de atividades, fazer edições, se necessário, e utilizá-las novamente com novas turmas ou em diferentes momentos do ano letivo.</p>
                 </div>
@@ -460,7 +333,7 @@
               <div class="faq-item">
                 <h3><span class="num">3.</span> <span>É possível personalizar as atividades geradas?</span></h3>
                 <div class="faq-content">
-                  <p>O Skrive permite total personalização das atividades geradas. Você pode modificar as questões, ajustar o nível de dificuldade, escolher tipos específicos de perguntas e adicionar instruções ou comentários para adaptar as atividades às necessidades da sua turma.</p>
+                  <p>A Scrike permite total personalização das atividades geradas. Você pode modificar as questões, ajustar o nível de dificuldade, escolher tipos específicos de perguntas e adicionar instruções ou comentários para adaptar as atividades às necessidades da sua turma.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
@@ -473,7 +346,7 @@
 
           <div class="col-lg-4 ps-5" data-aos="fade-up" data-aos-delay="100" >
             <div class="content ">
-              <img src="../static/img/lading_page/raposa_faq.png" alt=""  width="400">
+              <img src="../assets/img/lading_page/raposa_faq.png" alt=""  width="400">
             </div>
           </div>
         </div>
@@ -486,7 +359,6 @@
 
   <footer id="footer" class="footer">
 
-  
 
     <div class="container footer-top">
       <div class="row gy-4">
@@ -494,12 +366,10 @@
           <a href="index.html" class="d-flex align-items-center">
             <img src="../static/img/logo_skrive.png" alt="Logo Skrive " height="60" >
           </a>
-          <div class="footer-contact pt-3 ">
-            <div class="d-flex p-0"><i class="bi bi-geo-alt-fill"></i> <strong class="ps-1">Endereço</strong></div>
-            <p class="ps-4 pe-5"> Avenida Kazumi Yoshimura, 430, 
-              Distrito Industrial - Vila Isabel, Itapeva - SP</p> 
-           <div class="d-flex p-0 mt-3"><i class="bi bi-envelope-fill"></i> <strong class="ps-1">Email</strong></div>
-            <p class="ps-4 pe-5">skrive@gmail.com</p>
+          <div class="footer-contact pt-3">
+            <p class="pe-5">Avenida Kazumi Yoshimura, 430, 
+              Distrito Industrial - Vila Isabel, Itapeva - SP</p>
+            <p><strong>Email:</strong> <span>contato@skrive.com</span></p>
           </div>
         </div>
 
@@ -518,30 +388,26 @@
             <li><i class="bi bi-chevron-right"></i> <a href="#">Política de Privacidade</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="#">Segurança</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="#">Desenvolvedores</a></li>
+          
           </ul>
         </div>
 
-        <div class="col-lg-4 col-md-12 ">
-          <h4 class="ms-4">Siga o Skrive</h4>
-          <div class="social-links d-flex ms-3">
-            <a href="https://www.instagram.com/skrive_educ/"><i class="bi bi-facebook"></i></a>
-            <a href="https://www.instagram.com/skrive_educ/"><i class="bi bi-instagram"></i></a>
-            <a href="https://www.instagram.com/skrive_educ/"><i class="bi bi-linkedin"></i></a>
+        <div class="col-lg-4 col-md-12">
+          <h4>Siga o Skrive</h4>
+          <div class="social-links d-flex">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
 
       </div>
     </div>
 
- 
-
-  <section class="container-fluid copyright text-center d-flex justify-content-center align-items-center mt-3 d-flex" style="background-color: #febc04; padding: 1px 0;">
+    <section class="container-fluid copyright text-center d-flex justify-content-center align-items-center mt-3 d-flex" style="background-color: #febc04; padding: 1px 0;">
       <p>© 2024 Skrive - Todos os direitos reservados</p>
     </section>
-    
-    
-    
-
 
   </footer>
 

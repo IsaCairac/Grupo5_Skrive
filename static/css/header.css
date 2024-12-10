@@ -1,0 +1,16 @@
+.nav-link {
+    position: relative;
+    padding-bottom: 5px; /* Espaço extra para a barrinha */
+}
+
+.nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #ff8d29; /* Cor da barrinha */
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out; /* Suaviza o aparecimento da barrinha */
+}

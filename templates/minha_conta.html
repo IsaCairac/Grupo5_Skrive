@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Conta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/usuario.css">
+   
+</head>
+<body>
+    {% include 'header_log.html' %}
+    <div class="container-fluid border border-warning p-4 rounded-3 col-md-10">
+        <h1 class="text-start ms-2">Minha Conta</h1>
+        <div class="row">
+            <!-- Coluna da Foto -->
+            <div class="col-12 col-md-4 border border-warning text-center text-md-start">
+                <div class="profile-pic mb-3 mt-3">
+                        <img src="../static/img/image.png" alt="Imagem do User" class="rounded-circle">
+                </div>
+                <button type="button" class="btn btn-warning mb-3">Alterar Foto</button>
+                <hr class="border border-warning">
+                <p><strong>Disciplina:</strong> {{ usuario[2] }}</p>
+                <p><strong>Data de Criação:</strong> {{ usuario[3] }}</p>
+            </div>
+    
+            <!-- Coluna de Formulário -->
+            <div class="col-12 col-md-8 border border-warning mt-4 mt-md-0">
+                <form action="/editar_conta" method="POST">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label"><strong>Nome:</strong></label>
+                        <input type="text" class="form-control" name="nome" id="nome" value="{{ usuario[0] }}" required>
+                    </div>
+    
+                    <div class="mb-3">
+                        <label for="email" class="form-label"><strong>Email:</strong></label>
+                        <input type="email" class="form-control" name="email" id="email" value="{{ usuario[1] }}" required>
+                    </div>
+    
+                    <div class="mb-3">
+                        <label for="senha" class="form-label"><strong>Nova Senha:</strong></label>
+                        <input type="password" class="form-control" name="senha" id="senha" placeholder="Digite a nova senha (se desejar)">
+                    </div>
+    
+                    <div class="d-flex flex-wrap gap-3 mb-3">
+                        <button type="submit" class="btn btn-dark">Salvar Alterações</button>
+                        <form action="/excluir_conta" method="POST" onsubmit="return confirm('Tem certeza de que deseja excluir sua conta? Esta ação é irreversível.')">
+                            <button type="submit" class="btn btn-danger">Excluir Conta</button>
+                        </form>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    
+    <style>
+        .text-start{
+            font-size: 1.8rem;
+    text-align: start;
+    color: red;
+    font-weight: 800;
+    font-family: "Sour Gummy", sans-serif;
+        }
+
+   
+    </style>
+
+</body>
+</html>

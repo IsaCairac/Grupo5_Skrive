@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skrive | Histórico </title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../static/img/skrive_ico.ico" type="image/x-icon">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+  <!-- Main CSS  -->
+  <link href="../static/css/main.css" rel="stylesheet">
+  <!-- Dash CSS -->
+  <link rel="stylesheet" href="../static/css/historico.css">
+
+</head>
+<body class="index-page">
+  {% include 'header_log.html' %}
+
+  <main>
+    <!-- Hoje -->
+    <div class="container mt-5">
+        <h1 class="history-title">HISTÓRICO</h1>
+        {% if atividades_hoje %}
+        <h3>Hoje</h3>
+        <div class="row">
+        {% for atividade in atividades_hoje %}
+
+        <!-- Repetição do card -->
+        <div class="col-md-4 mb-4">
+            <div class="atividade-box" onclick="window.location.href='/historico_questao/{{ atividade.id_ativ }}'">
+                <div class="card-body row">
+                    <div class="d-flex justify-content-between">
+                    <h5 class="card-title">{{ atividade[1] }}</h5>
+                    <div class="dropdown">
+                        <button class="btn btn-link text-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <a href="/baixar_pdf/{{ atividade[0] }}" class="btn btn-dark download-btn col-md-2 mb-3">
+                                <i class="fas fa-file-download"></i> Baixar PDF
+                              </a>
+                            <li>
+                                <form action="/excluir_atividade/{{ atividade[0] }}" method="POST" style="display: inline;">
+                                    <button type="submit" class="dropdown-item text-danger"><i class="fas fa-trash-alt"></i> Excluir</button>
+                                </form>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between card-text">
+                    <div class="descricao">{{ atividade[2] }}</div>
+                </div>
+                <a href="/historico_questao/{{ atividade[0] }}">
+                    <p style="font-size: smaller;">Ver questões</p>
+                </a>
+            </div>
+            </div>
+       
+            </div>
+        {% endfor %}
+    </div>
+
+        {% endif %}
+    
+        <!-- Últimos 7 dias -->
+            {% if atividades_7_dias %}
+            <h3 class="mt-4">Últimos 7 dias</h3>
+            <div class="row">
+            {% for atividade in atividades_7_dias %}
+    
+            <!-- Repetição do card -->
+            <div class="col-md-4 mb-4">
+                <div class="atividade-box" onclick="window.location.href='/historico_questao/{{ atividade.id_ativ }}'">
+                    <div class="card-body row">
+                        <div class="d-flex justify-content-between">
+                        <h5 class="card-title">{{ atividade[1] }}</h5>
+                        <div class="dropdown">
+                            <button class="btn btn-link text-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <a href="/baixar_pdf/{{ atividade[0] }}" class="btn btn-dark download-btn col-md-2 mb-3">
+                                    <i class="fas fa-file-download"></i> Baixar PDF
+                                  </a>
+                                <li>
+                                    <form action="/excluir_atividade/{{ atividade[0] }}" method="POST" style="display: inline;">
+                                        <button type="submit" class="dropdown-item text-danger"><i class="fas fa-trash-alt"></i> Excluir</button>
+                                    </form>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between card-text">
+                        <div class="descricao">{{ atividade[2] }}</div>
+                        
+                    </div>
+                    <a href="/historico_questao/{{ atividade[0] }}">
+                        <p style="font-size: smaller;">Ver questões</p>
+                    </a>
+                </div>
+                </div>
+           
+                </div>
+            {% endfor %}
+        </div>
+            {% endif %}
+        
+        <!-- Últimos 3 meses -->
+        {% if atividades_3_meses %}
+        <h3>Últimos 3 meses</h3>
+        {% for atividade in atividades_3_meses %}
+
+        <!-- Repetição do card -->
+        <div class="col-md-4 mb-4">
+            <div class="atividade-box" onclick="window.location.href='/historico_questao/{{ atividade.id_ativ }}'">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                    <h5 class="card-title">aqui vai o título</h5>
+                    <div class="dropdown">
+                        <button class="btn btn-link text-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <a href="/baixar_pdf/{{ id_ativ }}" class="btn btn-dark download-btn col-md-2 mb-3">
+                                <i class="fas fa-file-download"></i> Baixar PDF
+                              </a>
+                              <li>
+                                <form action="/excluir_atividade/{{ atividade[0] }}" method="POST" style="display: inline;">
+                                    <button type="submit" class="dropdown-item text-danger"><i class="fas fa-trash-alt"></i> Excluir</button>
+                                </form>
+                            </li>
+</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between card-text">
+                    <div class="descricao">{{ atividade[2] }}</div>
+                    <div class="quantquestoes">Quantidade de questões: {{ atividade[6] }}</div> 
+                </div>
+                <a href="/historico_questao/{{ atividade[0] }}">
+                    <p style="font-size: smaller;">Ver questões</p>
+                </a>
+            </div>
+            </div>
+            </div>
+        {% endfor %}
+    </div>
+        {% endif %}
+
+
+        <!-- Último ano -->
+        {% if atividades_ano %}
+        <h3>Último ano</h3>
+        {% for atividade in atividades_ano %}
+
+        <!-- Repetição do card -->
+        <div class="col-md-4 mb-4">
+            <div class="atividade-box" onclick="window.location.href='/historico_questao/{{ atividade.id_ativ }}'">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                    <h5 class="card-title">aqui vai o título</h5>
+                    <div class="dropdown">
+                        <button class="btn btn-link text-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-file-download"></i> Baixar PDF</a></li>
+                            <li>
+                                <form action="/excluir_atividade/{{ atividade[0] }}" method="POST" style="display: inline;">
+                                    <button type="submit" class="dropdown-item text-danger"><i class="fas fa-trash-alt"></i> Excluir</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between card-text">
+                    <div class="descricao">{{ atividade[2] }}</div>
+                </div>
+                <a href="/historico_questao/{{ atividade[0] }}">
+                    <p style="font-size: smaller;">Ver questões</p>
+                </a>
+            </div>
+            </div>
+            </div>
+        {% endfor %}
+    </div>
+        {% endif %}
+
+
+        <!-- Mais antigas  -->
+        {% if atividades_mais_antigas %}
+        <h3>Mais antigas</h3>
+        {% for atividade in atividades_mais_antigas %}
+
+        <!-- Repetição do card -->
+        <div class="col-md-4 mb-4">
+            <div class="atividade-box" onclick="window.location.href='/historico_questao/{{ atividade.id_ativ }}'">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                    <h5 class="card-title">aqui vai o título</h5>
+                    <div class="dropdown">
+                        <button class="btn btn-link text-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-file-download"></i> Baixar PDF</a></li>
+                            <li>
+                                <form action="/excluir_atividade/{{ atividade[0] }}" method="POST" style="display: inline;">
+                                    <button type="submit" class="dropdown-item text-danger"><i class="fas fa-trash-alt"></i> Excluir</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between card-text">
+                    <div class="descricao">Descrição: {{ atividade[2] }}</div>
+                  
+                </div>
+                <a href="/historico_questao/{{ atividade[0] }}">
+                    <p style="font-size: smaller;">Ver questões</p>
+                </a>
+            </div>
+            </div>
+            </div>
+        {% endfor %}
+    </div>
+        {% endif %}
+    </div>
+                
+       
+  </main>
+
+</body>
+
+</html>

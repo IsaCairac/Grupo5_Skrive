@@ -1,0 +1,97 @@
+/* Estilo do título principal */
+.history-title {
+    font-size: 2.5rem;
+    color: #C20000; /* Vermelho */
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: "Sour Gummy", sans-serif;
+    font-optical-sizing: auto;
+}
+
+/* Títulos das seções */
+h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Estilo dos cards */
+.atividade-box {
+    border-radius: 10px;
+    border: 1px solid #D3D3D3;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    padding: 15px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.atividade-box:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+/* Estilo do título do card */
+.card-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Texto do card */
+.card-text .titulo,
+.card-text .descricao,
+.card-text .quantquestoes {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* Estilo do dropdown */
+.dropdown-menu {
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-item {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-item i {
+    margin-right: 10px;
+}
+
+/* Cor do item ao passar o mouse */
+.dropdown-item:hover {
+    background-color: #f5f5f5;
+}
+
+/* Cor personalizada para o botão de excluir */
+.dropdown-item.text-danger:hover {
+    background-color: #ffe0e0;
+}
+
+/* Reduzindo espaçamentos para otimizar layout */
+.row.g-3 {
+    gap: 0.5rem; /* Reduz o espaçamento entre os cards na linha */
+}
+
+a {
+    text-decoration: none;
+    color: #C20000;
+    font-size: 0.8rem;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para seções individuais */
+.section-container {
+    margin-bottom: 20px;
+}

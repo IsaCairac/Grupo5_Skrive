@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Questão</title>
+    <link rel="stylesheet" href="../static/css/editar_questao.css">
+</head>
+<body>
+    {% include 'header_log.html' %}
+
+    
+    <form action="/atualizar_questao/{{ questao[0] }}" method="post" enctype="multipart/form-data" class="col-12 col-md-10 col-lg-8 mx-auto text-center needs-validation m-3" novalidate>
+        <div class="form-floating mb-3">
+            <textarea oninput="adjustHeight(this)" name="enunciado" class="form-control" required placeholder="">{{ questao[1] }}</textarea>
+            <label for="enunciado">Enunciado</label>
+        </div>
+    
+        <div class="form-floating mb-3">
+            <textarea oninput="adjustHeight(this)" name="alternativa_a" class="form-control" required placeholder="">{{ questao[2] }}</textarea>
+            <label for="alternativa_a">Alternativa A</label>
+        </div>
+    
+        <div class="form-floating mb-3">
+            <textarea oninput="adjustHeight(this)" name="alternativa_b" class="form-control" required placeholder="">{{ questao[3] }}</textarea>
+            <label for="alternativa_b">Alternativa B</label>
+        </div>
+        
+        <div class="form-floating mb-3">
+            <textarea oninput="adjustHeight(this)" name="alternativa_c" class="form-control" required placeholder="">{{ questao[4] }}</textarea>
+            <label for="alternativa_c">Alternativa C</label>
+        </div>
+    
+        <div class="form-floating mb-3">
+            <textarea oninput="adjustHeight(this)" name="alternativa_d" class="form-control" required placeholder="">{{ questao[5] }}</textarea>
+            <label for="alternativa_d">Alternativa D</label>
+        </div>
+    
+        <div class="form-floating mb-3">
+            <input oninput="adjustHeight(this)" type="number" name="resposta_correta" class="form-control" value="{{ questao[6] }}" required min="1" max="4" placeholder="" autofocus />
+            <label for="resposta_correta">Resposta Correta</label>
+            <small class="text-danger d-none" id="error-message">Por favor, insira um número entre 1 e 4.</small>
+        </div>
+    
+        <div class="d-flex justify-content-between">
+            <input type="submit" class="btn btn-lg btn-success" value="Salvar" />
+            <a href="/historico" class="btn btn-lg btn-danger">Voltar</a>
+        </div>
+    </form>
+    
+
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (() => {
+            'use strict'
+    
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation')
+    
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+    
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+
+    
+
+
+    </script>
+
+<script href="../static/js/editar_questoes.js"></script>
+</body>
+</html>

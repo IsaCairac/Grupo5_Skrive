@@ -1,0 +1,80 @@
+/* Card geral para as atividades */
+.activity-card,
+.questions-card {
+  border: 2px solid #D3D3D3;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff;
+  margin-bottom: 20px;
+
+}
+
+/* Título da atividade */
+.activity-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #012241;
+  margin-bottom: 15px;
+}
+
+/* Texto da atividade */
+.activity-text {
+  font-size: 14px;
+  color: #333;
+  text-align: justify;
+  margin-bottom: 10px;
+}
+
+/* Título da seção de questões */
+.questions-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #012241;
+  margin-bottom: 10px;
+}
+
+/* Lista de questões */
+.questions-list {
+  font-size: 14px;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.questions-list li {
+  margin-bottom: 8px;
+}
+
+/* Botão de download */
+.download-btn {
+  background-color: #012241;
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.scroll-card {
+  height: 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+}
+
+.scroll-card::-webkit-scrollbar{
+  background-color: #D9D9D9;
+  border-radius: 10px;
+  width: 10px;
+  justify-content: end;
+  
+
+}
+
+.scroll-card::-webkit-scrollbar-thumb{
+  background-color: #959494;
+  border-radius: 10px;
+  cursor: pointer;
+  justify-content: end;
+}

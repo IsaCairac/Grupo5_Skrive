@@ -28,7 +28,7 @@ def index():
 def login():
     if request.method == 'GET':
         if session:
-            return redirect('/home')
+            return redirect('/dash')
         return render_template("login.html")
     
     if request.method == 'POST':
@@ -127,12 +127,20 @@ def verificar_email():
             encerrar_db(cursor, conexao)
     return jsonify({'error': "Email não fornecido."})
 
+
 #--------------------------------------------------------------
 # PÁGINA DASHBORD
 #--------------------------------------------------------------
 @app.route("/dash")
 def dash():
     return render_template('dash.html')
+
+
+
+
+@app.route("/enno")
+def enno():
+    return render_template('enno.html')
 
 #--------------------------------------------------------------
 # CORPO HEADER LOGADO
@@ -178,6 +186,7 @@ def texto():
             encerrar_db(cursor, conexao)
     else:
         return render_template('erro.html', erro="Preencha todos os campos.")  # Retorno em caso de dados ausentes
+
 
 # SALVAR ATIVIDADE 
 @app.route("/criar_atividade", methods=['GET', 'POST'])
@@ -238,6 +247,7 @@ def salvar_atividade():
             return f"Erro de back-end: {e}"
         finally:
             encerrar_db(cursor, conexao)
+
 
 # GERADOR - GERA E EXIBE QUESTÕES
 @app.route("/questoes")
